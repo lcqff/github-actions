@@ -16,12 +16,11 @@ on:
         required: true
         default: 'dev'
         type: choice
-        # choice 선택시 option 추가 가능
         options:
           - dev
           - qa
           - prod
-
+        # choice 선택시 option 추가 가능
 jobs:
   workflow-dispatch-jobs:
     runs-on: ubuntu-latest
