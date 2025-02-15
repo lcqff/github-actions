@@ -18,7 +18,8 @@ jobs:
             count = $((count+1))
             sleep 1
           done
-      # 실행되지 않고 fail 된다.
+        timeout-minutes: 1 # 1m
+      # 실행되지 않고 스킵 된다.
       - name: echo
         run: echo hello
 
