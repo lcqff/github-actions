@@ -1,0 +1,23 @@
+name: issue-comment-workflow
+
+# default activity type로 모든 activity type 포함
+# default branch에서만 동작
+# Issue나 PR에 comment가 생성될 경우 트리거
+on: issue_comment
+
+jobs:
+  # PR에 코멘트 생성시 트리거
+  pr-comment:
+    if: ${{ github.event.issue.pull_request }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: pr-comment
+        run: echo ${{ github.event.issue.pull_request }}
+
+#Issue에 코멘트 생성시 트리거
+  issue-comment:
+    if: ${{ !github.event.issue.pull_request }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: issue comment
+        run:  echo ${{ github.event.issue.pull_request }}
