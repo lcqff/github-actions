@@ -1,0 +1,22 @@
+name: checkout
+on: workflow_dispatch
+
+# Github repository 코드를 읽어옴
+jobs:
+  # checkout 사용하지 않음
+  # repository 코드가 없기에 실행 실패
+  no-checkout:
+    runs-on: ubuntu-latest
+    steps:
+      - name: check file list
+        run: cat README.md
+
+  # checkout 사용함
+  # 실행 성공
+  checkout:
+    runs-on: ubuntu-latest
+    steps:
+      - name: use checkout action
+        uses: actions/checkout@v4
+      - name: check file list
+        run: cat README.md
