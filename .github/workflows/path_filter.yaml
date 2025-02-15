@@ -1,0 +1,14 @@
+name: path-filter
+
+# .github/workflows/part1/* 에 변경이 발생할 때만 트리거
+on:
+  push:
+    paths:
+      - '.github/workflows/part1/*'
+
+jobs:
+  path-filter:
+    runs-on: ubuntu-latest
+    steps:
+      - name: hello world
+        run: echo hello world
