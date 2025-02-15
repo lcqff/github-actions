@@ -11,5 +11,3 @@ jobs:
         run: | 
           echo hello world
           echo github action
-
-# test path_filter.yaml
