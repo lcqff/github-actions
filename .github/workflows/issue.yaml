@@ -1,0 +1,19 @@
+name: issue_workflow
+
+# default activity type로 모든 activity type 포함
+# issue 이벤트는 default branch에서만 동작
+on:
+  issues:
+    types:
+      - opened
+
+jobs:
+  issue-jobs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: hello world
+        run: echo hello world
+      - name: multiLine
+        run: |
+          echo hello world
+          echo github action
