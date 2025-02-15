@@ -1,0 +1,13 @@
+name: pull-request-workflow
+on: pull_request
+
+jobs:
+  pull-request-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: hello world
+        run: echo hello world
+      - name: multiLine
+        run: |
+          echo hello world
+          echo github action
