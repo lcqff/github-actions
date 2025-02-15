@@ -1,0 +1,24 @@
+# 기본값:  360m
+# 자동 중단
+# job, step 레벨에서 사용 가능
+
+name: timeout
+on: push
+
+jobs:
+  timeout:
+    runs-on: ubuntu-latest
+    timeout-minutes: 2 # 2m
+    steps:
+      - name: loop
+        run: | 
+          count=0
+          while true; do
+            echo "seconds: $count:
+            count = ${{count+1}}
+            sleep 1
+          done
+      # 실행되지 않고 fail 된다.
+      - name: echo
+        run: echo hello
+
