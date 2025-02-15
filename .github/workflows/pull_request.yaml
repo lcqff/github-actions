@@ -1,5 +1,11 @@
 name: pull-request-workflow
-on: pull_request
+
+# on: pull_request
+# default activity type 모두 적용됨 (opened, synchronize, reopen)
+on:
+  pull_request:
+    types:
+      - opened # PR이 최초 오픈됐을 때만 실행
 
 jobs:
   pull-request-job:
