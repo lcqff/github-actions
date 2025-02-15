@@ -1,0 +1,38 @@
+name: workflow-dispatch
+
+# default branch에서만 동작
+# 수동 트리거
+# Input 설정 가능
+on:
+  workflow_dispatch:
+    inputs:
+      name:
+        description: 'set name'
+        required: true
+        default: 'github-actions'
+        type: string
+      environment:
+        description: 'set env'
+        required: true
+        default: 'dev'
+        type: choice
+        # choice 선택시 option 추가 가능
+        options:
+          - dev
+          - qa
+          - prod
+
+jobs:
+  workflow-dispatch-jobs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: hello world
+        run: echo hello world
+      - name: multiLine
+        run: |
+          echo hello world
+          echo github action
+      - name: echo inputs
+        run: |
+          echo ${{ inputs.name }}
+          echo ${{ inputs.environment }}
