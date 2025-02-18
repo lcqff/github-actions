@@ -16,7 +16,6 @@ function App() {
           rel="noopener noreferrer"
         >
           Learn GithubAction cicd
-          test cache.yaml
         </a>
       </header>
     </div>
