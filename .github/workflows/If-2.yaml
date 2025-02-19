@@ -1,0 +1,22 @@
+# alway를 사용하여 강제 실행 가능
+
+name: if-2
+on: push
+
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    steps:
+      - name: exit
+        run: exit 1
+      - name: echo
+        if: always() # 원래는 첫번째 step이 실패하며 스킵됨 -> alway 설정으로 강제 실행
+        run: echo hello
+
+  job2:
+    needs: [job1]
+    runs-on: ubuntu-latest
+    if: always() # 원래는 job1이 실패하며 스킵됨 -> alway 설정으로 강제 실행
+    steps:
+      - name: echo
+        run: echo hello

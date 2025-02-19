@@ -1,0 +1,31 @@
+# 해당 job/step 실행 여부
+# job level, step level 사용 가능
+
+name: if-1
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push' # push 이벤트일 때 job 실행
+    steps:
+      - name: get event name
+        run: echo ${{ github.event_name }}
+  job2:
+    runs-on: ubuntu-latest
+    if: github.event_name != 'push' # push 이벤트가 아닐때 job 실행
+    steps:
+      - name: get event name
+        run: echo ${{ github.event_name }}
+
+  job3:
+    runs-on: ubuntu-latest
+    steps:
+      - name: get event name
+        if: github.event_name == 'push' # push 이벤트일 때 step 실행
+        run: echo ${{ github.event_name }}
+      - name: get event name
+        if: github.event_name != 'push' # push 이벤트가 아닐때 step 실행
+        run: echo ${{ github.event_name }}
