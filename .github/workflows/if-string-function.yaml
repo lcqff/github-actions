@@ -1,0 +1,31 @@
+# startswith: 해당 문자열로 시작되지 않으면 스킵
+# endswith: 해당 문자열로 끝나지 않으면 스킵
+# contians: 해당 문자열이 포함되지 않으면 스킵
+
+name: if-string-function
+on: push
+
+jobs:
+  string-function:
+    runs-on: ubuntu-latest
+    steps:
+      - name: startswith
+        if: startswith('github actions', 'git')
+        run: echo 'git'
+      - name: startswith
+        if: startswith('github actions', 'test') # 스킵
+        run: echo 'test'
+
+      - name: endswith
+        if: endswith('github actions', 'ions')
+        run: echo 'ions'
+      - name: endswith
+        if: endswith('github actions', 'test') # 스킵
+        run: echo 'test'
+
+      - name: contains
+        if: contains('github actions', 'act')
+        run: echo 'contains act'
+      - name: endswith
+        if: contains('github, actions', 'git') # 배열에 'git'을 포함하는 문자열 존재
+        run: echo 'contains git'
