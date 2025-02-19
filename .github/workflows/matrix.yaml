@@ -1,0 +1,20 @@
+# 변수를 사용하여 하나의 job으로 여러개의 job 실횅
+  # ex) 변수로 paython3.7~python3.9 설정하여 동일한 테스트를 버전별로 테스트
+  # ex) 변수로 window, linux, macOS 설정하여 여러개의 러너에서 동일한 job 실행
+
+name: matrix
+on: push
+
+jobs:
+  get-matrix:
+    strategy:
+      matrix:
+        os: [window-latest, ubuntu-latest]
+        version: [12,14]
+        # 위 두 변수에 대해 모든 가능한 조홥 생성 => 총 4가지 job 실행
+    runs-on: ${{ matrix.os }}
+    steps:
+      - name: check matrix
+        run: |
+          echo ${{ matrix.os }}
+          echo ${{matrix.version }}
