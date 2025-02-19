@@ -1,4 +1,6 @@
 # Repository -> Setting -> Secret and Variables -> action -> variables 에서 환경 변수 미리 설정 가능
+  # organization, repository, environment에서 설정 가능
+  # 우선순위: environment level >> Repository level >> Organization level
 
 name: env-2
 on: push

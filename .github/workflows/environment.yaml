@@ -1,0 +1,22 @@
+name: environment
+on: push
+
+jobs:
+  get-env:
+    runs-on: ubuntu-latest
+    steps:
+      - name: check env & secret
+        # Repositoryd에 설정된 환경변수와 시크릿 가져옴
+        run: |
+          echo ${{ vars.level }}
+          echo ${{ secrets.level }}
+
+  get-env-dev:
+    runs-on: ubuntu-latest
+    environment: dev # 환경을 dev로 설정
+    steps:
+      - name: check env & secret
+        # dev Environment에 설정된 환경변수와 시크릿 가져옴
+        run: |
+          echo ${{ vars.level }}  
+          echo ${{ secrets.level }}

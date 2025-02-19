@@ -6,7 +6,7 @@
  # job levevl, step level, workflow level 정의 가능
  # 우선순위: step >> job >> workflow
 
-name: var-1
+name: env-1
 on: push
 
 env:
