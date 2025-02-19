@@ -1,0 +1,11 @@
+# Repository -> Setting -> Secret and Variables -> action -> variables 에서 환경 변수 미리 설정 가능
+
+name: env-2
+on: push
+
+jobs:
+  get-var:
+    runs-on: ubuntu-latest
+    steps:
+      - name: get var
+        run: echo ${{ vars.level }} # 미리 정의된 환경변수 LEVEL 가져옴
